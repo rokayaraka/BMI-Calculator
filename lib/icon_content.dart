@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-const lebelTextStyle = TextStyle(fontSize: 18.0,
-        color: Color(0xFF8D8E98),
-        );
+
+import 'constant.dart';
+
 
 class ReusableCardChild extends StatelessWidget {
   
