@@ -15,7 +15,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  late Gender selectedgender;
+  Gender? selectedgender;
   int height = 180;
 
   @override
