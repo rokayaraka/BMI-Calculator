@@ -4,15 +4,22 @@ import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 
 class result extends StatelessWidget {
+  result({
+    required this.bmiResult,
+    required this.resultText,
+    required this.interpitation,
+  });
+  final String bmiResult;
+  final String resultText;
+  final String interpitation;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          
           "BMI CALCULATOR",
-          textAlign: TextAlign.center,
         ),
+        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -36,15 +43,15 @@ class result extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Normal',
+                    resultText,
                     style: kResultTextStyle,
                   ),
                   Text(
-                    "20.3",
+                    bmiResult.toUpperCase(),
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'Your BMI is quite low, you should eat more',
+                    interpitation,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
@@ -60,9 +67,14 @@ class result extends StatelessWidget {
               height: bottomContainerheight,
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return InputPage();
-                  }));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return InputPage();
+                      },
+                    ),
+                  );
                 },
                 child: Text(
                   'Re-Calculate',

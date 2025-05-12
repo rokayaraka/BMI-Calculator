@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/calculating_bmi.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../constant.dart';
@@ -19,8 +20,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedgender;
   int height = 180;
-  int weight = 60;
-  int age = 15;
+  int weight = 50;
+  int age = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -218,11 +219,20 @@ class _InputPageState extends State<InputPage> {
             height: bottomContainerheight,
             child: TextButton(
               onPressed: () {
+                CalculatorBrain calc = CalculatorBrain(
+                  height: height,
+                  weight: weight,
+                );
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return result();
+                      return result(
+                        bmiResult: calc.CalculateBMI(),
+                        resultText: calc.getResult(),
+                        interpitation: calc.getInterPretation(),
+                      );
                     },
                   ),
                 );
